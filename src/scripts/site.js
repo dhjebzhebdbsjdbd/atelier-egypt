@@ -1,5 +1,5 @@
 /* =====================================================================
-   Atelier Masr — site behaviour
+   Atelier Egypt — site behaviour
    Bundled by Astro and loaded once per page. Runs after the DOM parses.
    Handles: language toggle (+ persistence), WhatsApp prefilled messages,
    scroll-reveal, header background on scroll, mobile menu.
@@ -10,7 +10,7 @@ const PHONE = '201004075958';
 // Prefilled WhatsApp message — Arabic on the AR site, English on the EN site.
 const MSG = {
   ar: 'أهلاً أتيليه مصر، شفت شغلكم وحابب أعرف أكتر عن تصميم موقع لمشروعي.',
-  en: "Hi Atelier Masr, I saw your work and I'd like to know more about a website for my project.",
+  en: "Hi Atelier Egypt, I saw your work and I'd like to know more about a website for my project.",
 };
 
 const STORAGE_KEY = 'am-lang';

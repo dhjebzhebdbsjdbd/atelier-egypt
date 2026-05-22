@@ -1,5 +1,5 @@
 /* ===================================================================
-   Atelier Masr — global stylesheet
+   Atelier Egypt — global stylesheet
    Brand source of truth: atelier-masr.html (kept in repo root for ref)
    =================================================================== */
 
@@ -114,7 +114,7 @@ html[lang="ar"] .nav-links a{font-family:var(--ar-display);font-size:16px}
 }
 .scroll-hint .bar{width:46px;height:1px;background:var(--ink);transform-origin:inline-start;animation:slide 2.4s ease-in-out infinite}
 
-/* ===== inner-page head (Work / About / Contact) ===== */
+/* ===== inner-page head (About / Contact / Start) ===== */
 .page-head{padding:160px 0 30px;position:relative}
 .page-head .h1{font-size:clamp(38px,7vw,76px);animation:none;opacity:1}
 .page-head .lede{animation:none;opacity:1;margin-top:24px}

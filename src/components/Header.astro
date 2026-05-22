@@ -2,14 +2,14 @@
 import { navLinks } from '../data/nav';
 
 // Normalise the current path so trailing slashes don't break matching
-// (Astro serves "/work" in dev and "/work/" in the static build).
+// (Astro serves "/about" in dev and "/about/" in the static build).
 const path = Astro.url.pathname.replace(/(.)\/$/, '$1');
 const isCurrent = (href: string) => path === href;
 ---
 <header id="hdr">
-  <a class="mark" href="/" aria-label="Atelier Masr — home">
-    <span data-ar>أتيليه مصر</span><span data-en>Atelier Masr</span>
-    <span class="en" data-ar>Atelier Masr</span><span class="en" data-en>أتيليه مصر</span>
+  <a class="mark" href="/" aria-label="Atelier Egypt — home">
+    <span data-ar>أتيليه مصر</span><span data-en>Atelier Egypt</span>
+    <span class="en" data-ar>Atelier Egypt</span><span class="en" data-en>أتيليه مصر</span>
   </a>
 
   <nav class="nav" aria-label="Primary">

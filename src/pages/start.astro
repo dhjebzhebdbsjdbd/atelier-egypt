@@ -28,7 +28,7 @@ const brandStatus = [
 const val = (o: { ar: string; en: string }) => `${o.ar} — ${o.en}`;
 ---
 <Base
-  title="ابدأ مشروعك — Atelier Masr"
+  title="ابدأ مشروعك — Atelier Egypt"
   description="ابدأ مشروعك مع أتيليه مصر — املأ نموذج التعريف بمشروعك وسنرجع لك على واتساب."
 >
   <section class="page-head wrap">
@@ -56,8 +56,8 @@ const val = (o: { ar: string; en: string }) => `${o.ar} — ${o.en}`;
       <form id="intakeForm" action="https://api.web3forms.com/submit" method="POST">
         <!-- Web3Forms config — access key comes from src/data/site.ts -->
         <input type="hidden" name="access_key" value={site.web3formsKey} />
-        <input type="hidden" name="subject" value="طلب مشروع جديد من الموقع — Atelier Masr intake" />
-        <input type="hidden" name="from_name" value="Atelier Masr — Start a project" />
+        <input type="hidden" name="subject" value="طلب مشروع جديد من الموقع — Atelier Egypt intake" />
+        <input type="hidden" name="from_name" value="Atelier Egypt — Start a project" />
         <!-- spam honeypot — must stay empty -->
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
 
