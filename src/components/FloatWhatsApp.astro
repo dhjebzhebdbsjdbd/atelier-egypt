@@ -1,0 +1,8 @@
+---
+import { site } from '../data/site';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+---
+<!-- href is upgraded to a prefilled message by site.js (class "js-wa") -->
+<a class="float-wa js-wa" href={site.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp">
+  <WhatsAppIcon />
+</a>

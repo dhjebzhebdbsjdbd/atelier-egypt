@@ -1,0 +1,15 @@
+---
+/**
+ * Bilingual text. Renders two spans — Arabic and English — and the
+ * stylesheet shows whichever matches the current <html lang>.
+ * `ar` / `en` accept inline HTML (e.g. <br>, <span class="accent">).
+ *
+ * Usage:  <h1 class="h1"><Bilingual ar="مرحباً" en="Hello" /></h1>
+ */
+interface Props {
+  ar: string;
+  en: string;
+}
+const { ar, en } = Astro.props;
+---
+<span data-ar set:html={ar}></span><span data-en set:html={en}></span>

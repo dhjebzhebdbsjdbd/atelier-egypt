@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { site } from '../data/site';
+---
+<Base title="تواصل معنا — Atelier Masr">
+  <section class="contact wrap" style="padding-top:170px">
+    <div class="sec-label">
+      <span data-ar>تواصل معنا</span><span data-en>Get in touch</span>
+    </div>
+    <h2 class="big">
+      <span data-ar>عندك مشروع<br>يستحق <span class="accent">تصميم حقيقي</span>؟</span>
+      <span data-en>Got a project that<br>deserves <span class="accent">real design</span>?</span>
+    </h2>
+    <p class="intro">
+      <span data-ar>كلّمنا على واتساب وخلّينا نسمع عن مشروعك. أول محادثة دائماً مجانية.</span>
+      <span data-en>Message us on WhatsApp and tell us about your project. The first conversation is always free.</span>
+    </p>
+
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a
+        class="btn btn-primary js-wa"
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener"
+        style="font-size:18px;padding:18px 38px"
+      >
+        <WhatsAppIcon />
+        <span data-ar>راسلنا على واتساب</span><span data-en>Message us on WhatsApp</span>
+      </a>
+      <a class="btn btn-ghost" href="/start" style="font-size:18px;padding:18px 38px">
+        <span data-ar>ابدأ مشروعك</span><span data-en>Start a project</span>
+      </a>
+    </div>
+
+    <p class="intro" style="margin:36px auto 0">
+      <span data-ar>تفضّل نموذجاً سريعاً؟ احكِ لنا عن مشروعك بالتفصيل من صفحة «ابدأ مشروعك» وسنرجع لك على واتساب.</span>
+      <span data-en>Prefer a quick form? Tell us about your project in detail on the “Start a project” page and we'll reply on WhatsApp.</span>
+    </p>
+
+    <div class="channels">
+      <a class="chip" href={site.instagram} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+        {site.instagramHandle}
+      </a>
+      <a class="chip" href={`mailto:${site.email}`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+          <path d="M3 6l9 7 9-7"/>
+        </svg>
+        {site.email}
+      </a>
+      <a class="chip" href={site.tel}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 005.5 5.5l1.5-2 4 1.5v3a2 2 0 01-2 2A16 16 0 014.5 5.5a2 2 0 012-2z"/>
+        </svg>
+        <span dir="ltr">{site.phoneDisplay}</span>
+      </a>
+    </div>
+  </section>
+</Base>

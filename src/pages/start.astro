@@ -1,0 +1,321 @@
+---
+import Base from '../layouts/Base.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { site } from '../data/site';
+
+// Radio option sets. The submitted value carries both languages so the
+// email that reaches the inbox is clear regardless of the visitor's choice.
+const businessTypes = [
+  { ar: 'مطعم / كافيه', en: 'Restaurant / Café' },
+  { ar: 'بوتيك / محل', en: 'Boutique / Shop' },
+  { ar: 'عيادة', en: 'Clinic' },
+  { ar: 'علامة / منتج', en: 'Brand / Product' },
+  { ar: 'خدمات', en: 'Services' },
+  { ar: 'أخرى', en: 'Other' },
+];
+const goals = [
+  { ar: 'البيع أونلاين', en: 'Sell online' },
+  { ar: 'الحجوزات', en: 'Bookings' },
+  { ar: 'مكالمات وواتساب', en: 'Calls & WhatsApp' },
+  { ar: 'عرض الأعمال والمصداقية', en: 'Show work & credibility' },
+  { ar: 'أخرى', en: 'Other' },
+];
+const brandStatus = [
+  { ar: 'لوجو وألوان جاهزة', en: 'Logo + colors ready' },
+  { ar: 'لوجو فقط', en: 'Logo only' },
+  { ar: 'نبدأ من الصفر', en: 'Start from scratch' },
+];
+const val = (o: { ar: string; en: string }) => `${o.ar} — ${o.en}`;
+---
+<Base
+  title="ابدأ مشروعك — Atelier Masr"
+  description="ابدأ مشروعك مع أتيليه مصر — املأ نموذج التعريف بمشروعك وسنرجع لك على واتساب."
+>
+  <section class="page-head wrap">
+    <div class="sec-label">
+      <span data-ar>ابدأ مشروعك</span><span data-en>Start a project</span>
+    </div>
+    <h1 class="h1">
+      <span data-ar>خلّينا نسمع<br>عن <span class="accent">مشروعك</span>.</span>
+      <span data-en>Tell us about<br>your <span class="accent">project</span>.</span>
+    </h1>
+    <p class="lede">
+      <span data-ar>املأ النموذج بالتفصيل قدر ما تقدر — كل ما عرفنا أكتر، كل ما رجعنا لك بتصوّر أوضح. سنرد على واتساب عادةً خلال يوم عمل.</span>
+      <span data-en>Fill in as much detail as you can — the more we know, the clearer the proposal we come back with. We usually reply on WhatsApp within one business day.</span>
+    </p>
+  </section>
+
+  <section class="section tight wrap">
+    <div class="intake">
+      <p class="intake-legend">
+        <span data-ar>الحقول المعلّمة بـ <span class="req">✦</span> مطلوبة. باقي الحقول اختيارية تماماً.</span>
+        <span data-en>Fields marked <span class="req">✦</span> are required. Everything else is optional.</span>
+      </p>
+
+      <!-- ===================== INTAKE FORM ===================== -->
+      <form id="intakeForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms config — access key comes from src/data/site.ts -->
+        <input type="hidden" name="access_key" value={site.web3formsKey} />
+        <input type="hidden" name="subject" value="طلب مشروع جديد من الموقع — Atelier Masr intake" />
+        <input type="hidden" name="from_name" value="Atelier Masr — Start a project" />
+        <!-- spam honeypot — must stay empty -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+
+        <!-- ---- GROUP 1: about the business ---- -->
+        <div class="form-group">
+          <div class="sec-label">
+            <span data-ar>عن نشاطك</span><span data-en>About your business</span>
+          </div>
+
+          <div class="field">
+            <label for="biz-name">
+              <span data-ar>اسم النشاط أو العلامة</span><span data-en>Business or brand name</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </label>
+            <input type="text" id="biz-name" name="Business name" autocomplete="organization" required />
+          </div>
+
+          <div class="field">
+            <label for="biz-what">
+              <span data-ar>ماذا تعملون؟ في جملة واحدة</span><span data-en>What you do, in one sentence</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </label>
+            <input type="text" id="biz-what" name="What they do" required />
+          </div>
+
+          <fieldset class="field">
+            <legend>
+              <span data-ar>نوع النشاط</span><span data-en>Type of business</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </legend>
+            <div class="radio-group">
+              {businessTypes.map((o) => (
+                <label class="radio">
+                  <input type="radio" name="Business type" value={val(o)} required />
+                  <span data-ar>{o.ar}</span><span data-en>{o.en}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>
+              <span data-ar>أهم شيء يجب أن يحققه الموقع</span><span data-en>The #1 thing the site should do</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </legend>
+            <div class="radio-group">
+              {goals.map((o) => (
+                <label class="radio">
+                  <input type="radio" name="Main goal" value={val(o)} required />
+                  <span data-ar>{o.ar}</span><span data-en>{o.en}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ---- GROUP 2: description & content ---- -->
+        <div class="form-group">
+          <div class="sec-label">
+            <span data-ar>الوصف والمحتوى</span><span data-en>Description & content</span>
+          </div>
+
+          <div class="field">
+            <label for="biz-desc">
+              <span data-ar>وصف النشاط كما تحب أن يظهر للناس</span>
+              <span data-en>A description of the business, as you want it shown</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </label>
+            <textarea id="biz-desc" name="Business description" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="biz-products">
+              <span data-ar>المنتجات أو الخدمات والأسعار</span>
+              <span data-en>Products / services & prices</span>
+            </label>
+            <textarea id="biz-products" name="Products & prices"></textarea>
+            <p class="hint">
+              <span data-ar>اختياري — يمكنك إرسالها لاحقاً على واتساب.</span>
+              <span data-en>Optional — you can also send these later on WhatsApp.</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="biz-social">
+              <span data-ar>روابط حساباتكم على السوشيال ميديا</span>
+              <span data-en>Social media links</span>
+            </label>
+            <textarea id="biz-social" name="Social media" style="min-height:80px"></textarea>
+            <p class="hint">
+              <span data-ar>اختياري — إنستجرام، فيسبوك، تيك توك…</span>
+              <span data-en>Optional — Instagram, Facebook, TikTok…</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ---- GROUP 3: brand & taste ---- -->
+        <div class="form-group">
+          <div class="sec-label">
+            <span data-ar>الهوية والذوق</span><span data-en>Brand & taste</span>
+          </div>
+
+          <fieldset class="field">
+            <legend>
+              <span data-ar>هل لديك هوية بصرية حالياً؟</span><span data-en>Do you already have a brand?</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </legend>
+            <div class="radio-group">
+              {brandStatus.map((o) => (
+                <label class="radio">
+                  <input type="radio" name="Existing brand" value={val(o)} required />
+                  <span data-ar>{o.ar}</span><span data-en>{o.en}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="biz-likes">
+              <span data-ar>٢–٣ مواقع تعجبك — ولماذا</span>
+              <span data-en>2–3 websites you like — and why</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </label>
+            <textarea id="biz-likes" name="Websites they like" required></textarea>
+            <p class="hint">
+              <span data-ar>ضع الروابط واكتب باختصار ما الذي أعجبك في كل منها.</span>
+              <span data-en>Paste the links and note briefly what you liked about each.</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="biz-colors">
+              <span data-ar>ألوان تحبها أو تكرهها</span>
+              <span data-en>Colors you love or hate</span>
+            </label>
+            <input type="text" id="biz-colors" name="Colors loved / hated" />
+          </div>
+
+          <div class="note-box">
+            <WhatsAppIcon />
+            <p>
+              <span data-ar>
+                <strong>اللوجو والصور:</strong> لا حاجة لرفع ملفات هنا — أرسل لنا شعارك
+                وصور مشروعك مباشرةً على واتساب
+                <a href={site.whatsapp} target="_blank" rel="noopener" dir="ltr">+20 100 407 5958</a>.
+              </span>
+              <span data-en>
+                <strong>Logo & photos:</strong> no need to upload files here — send us
+                your logo and project photos directly on WhatsApp at
+                <a href={site.whatsapp} target="_blank" rel="noopener" dir="ltr">+20 100 407 5958</a>.
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ---- GROUP 4: contact details ---- -->
+        <div class="form-group">
+          <div class="sec-label">
+            <span data-ar>بيانات التواصل</span><span data-en>Contact details</span>
+          </div>
+
+          <div class="field">
+            <label for="biz-wa">
+              <span data-ar>رقم الواتساب</span><span data-en>WhatsApp number</span>
+              <span class="req" aria-hidden="true">✦</span>
+            </label>
+            <input type="tel" id="biz-wa" name="WhatsApp number" autocomplete="tel" inputmode="tel" dir="ltr" required />
+          </div>
+
+          <div class="field">
+            <label for="biz-address">
+              <span data-ar>العنوان أو المنطقة</span><span data-en>Address / area</span>
+            </label>
+            <input type="text" id="biz-address" name="Address / area" />
+          </div>
+
+          <div class="field">
+            <label for="biz-hours">
+              <span data-ar>مواعيد العمل</span><span data-en>Working hours</span>
+            </label>
+            <input type="text" id="biz-hours" name="Working hours" />
+          </div>
+
+          <div class="field">
+            <label for="biz-notes">
+              <span data-ar>أي شيء آخر تحب أن نعرفه</span><span data-en>Anything else you'd like us to know</span>
+            </label>
+            <textarea id="biz-notes" name="Anything else" style="min-height:90px"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit" id="intakeSubmit">
+          <span data-ar>إرسال الطلب</span><span data-en>Send request</span>
+        </button>
+
+        <p class="form-error" id="intakeError" hidden>
+          <span data-ar>تعذّر إرسال النموذج. تحقّق من اتصالك وحاول مرة أخرى، أو راسلنا مباشرةً على واتساب.</span>
+          <span data-en>We couldn't send the form. Check your connection and try again, or message us directly on WhatsApp.</span>
+        </p>
+      </form>
+
+      <!-- ===================== THANK-YOU ===================== -->
+      <div class="intake-done" id="intakeDone" hidden>
+        <div class="seal" aria-hidden="true">✦</div>
+        <h2>
+          <span data-ar>شكراً لتواصلك</span><span data-en>Thank you</span>
+        </h2>
+        <p>
+          <span data-ar>وصلنا طلبك. سنراجع التفاصيل ونرجع لك على واتساب قريباً — عادةً خلال يوم عمل.</span>
+          <span data-en>We've received your request. We'll review the details and reply on WhatsApp soon — usually within one business day.</span>
+        </p>
+        <div class="done-actions">
+          <a class="btn btn-primary js-wa" href={site.whatsapp} target="_blank" rel="noopener">
+            <WhatsAppIcon />
+            <span data-ar>راسلنا على واتساب الآن</span><span data-en>Message us on WhatsApp now</span>
+          </a>
+          <a class="btn btn-ghost" href="/">
+            <span data-ar>العودة للرئيسية</span><span data-en>Back to home</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Submit the intake form to Web3Forms without leaving the page,
+  // then swap in the branded thank-you message.
+  const form = document.getElementById('intakeForm') as HTMLFormElement | null;
+  const done = document.getElementById('intakeDone');
+  const errBox = document.getElementById('intakeError');
+  const submitBtn = document.getElementById('intakeSubmit') as HTMLButtonElement | null;
+
+  if (form && done && errBox && submitBtn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errBox.hidden = true;
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          form.hidden = true;
+          done.hidden = false;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(data.message || 'submit failed');
+        }
+      } catch (err) {
+        errBox.hidden = false;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>

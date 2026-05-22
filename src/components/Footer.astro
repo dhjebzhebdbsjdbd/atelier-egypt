@@ -1,0 +1,18 @@
+---
+import { navLinks } from '../data/nav';
+---
+<footer>
+  <ul class="footer-nav">
+    {navLinks.map((l) => (
+      <li>
+        <a href={l.href}>
+          <span data-ar>{l.ar}</span><span data-en>{l.en}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="footer-tag">
+    <span data-ar>أتيليه مصر © ٢٠٢٦ — صُنع بعناية في القاهرة</span>
+    <span data-en>Atelier Masr © 2026 — made with care in Cairo</span>
+  </p>
+</footer>

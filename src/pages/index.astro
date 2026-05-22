@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { site } from '../data/site';
+
+const services = [
+  {
+    num: '٠١',
+    titleAr: 'تصميم وتطوير المواقع', titleEn: 'Website Design & Build',
+    descAr: 'مواقع سريعة، أنيقة، وتشتغل بإتقان على الموبايل قبل أي حاجة.',
+    descEn: 'Fast, elegant websites that work flawlessly on mobile first.',
+  },
+  {
+    num: '٠٢',
+    titleAr: 'الهوية البصرية', titleEn: 'Visual Identity',
+    descAr: 'لوجو، ألوان، وخطوط تحكي قصة علامتك بثبات وذوق.',
+    descEn: "Logo, color, and type that tell your brand's story with consistency and taste.",
+  },
+  {
+    num: '٠٣',
+    titleAr: 'المتاجر الإلكترونية', titleEn: 'Online Stores',
+    descAr: 'متجر يبيع فعلاً — تجربة شراء بسيطة وواضحة لعملائك.',
+    descEn: 'A store that actually sells — a simple, clear buying experience for your customers.',
+  },
+  {
+    num: '٠٤',
+    titleAr: 'الحضور الرقمي', titleEn: 'Digital Presence',
+    descAr: 'نربط موقعك بحساباتك وخرائط جوجل وواتساب في منظومة واحدة.',
+    descEn: 'We connect your site to your socials, Google Maps, and WhatsApp in one system.',
+  },
+];
+---
+<Base>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="eyebrow">
+      <span data-ar>استوديو تصميم مواقع — صُنع في مصر</span>
+      <span data-en>A web design studio — made in Egypt</span>
+    </div>
+    <h1 class="h1">
+      <span data-ar>مواقع تُصمَّم<br>كأنها <span class="accent">قطعة فن</span>.</span>
+      <span data-en>Websites built<br>like a <span class="accent">work of art</span>.</span>
+    </h1>
+    <p class="lede">
+      <span data-ar>نصمّم مواقع للبوتيكات والمطاعم والعيادات والعلامات التي تهتم بالتفاصيل. تصميم نظيف، هوية واضحة، وحضور يليق بعملك.</span>
+      <span data-en>We design websites for boutiques, restaurants, clinics, and brands that care about detail. Clean design, a clear identity, and a presence worthy of your work.</span>
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary js-wa" href={site.whatsapp} target="_blank" rel="noopener">
+        <WhatsAppIcon />
+        <span data-ar>تواصل معنا واتساب</span><span data-en>WhatsApp us now</span>
+      </a>
+      <a class="btn btn-ghost" href="/work">
+        <span data-ar>شاهد أعمالنا</span><span data-en>See our work</span>
+      </a>
+    </div>
+    <div class="scroll-hint">
+      <span class="bar"></span>
+      <span data-ar>تصفّح</span><span data-en>scroll</span>
+    </div>
+  </section>
+
+  <!-- SERVICES / WHAT WE DO -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-label">
+        <span data-ar>ما نقدّمه</span><span data-en>What we do</span>
+      </div>
+      <h2 class="sec-title">
+        <span data-ar>كل تفصيلة مدروسة — من أول فكرة لآخر بكسل.</span>
+        <span data-en>Every detail considered — from the first idea to the last pixel.</span>
+      </h2>
+    </div>
+    <div class="services reveal">
+      {services.map((s) => (
+        <div class="svc">
+          <div class="num">{s.num}</div>
+          <h3><span data-ar>{s.titleAr}</span><span data-en>{s.titleEn}</span></h3>
+          <p><span data-ar>{s.descAr}</span><span data-en>{s.descEn}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ETHOS / PHILOSOPHY BAND -->
+  <section class="ethos">
+    <p class="quote">
+      <span data-ar>التصميم الجيد لا يصرخ.<br><span class="gold">إنه يُشعر العميل أنك جاد.</span></span>
+      <span data-en>Good design doesn't shout.<br><span class="gold">It makes your customer feel you're serious.</span></span>
+    </p>
+    <div class="by">
+      <span data-ar>— فلسفة أتيليه مصر</span><span data-en>— the Atelier Masr philosophy</span>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact wrap">
+    <h2 class="big">
+      <span data-ar>عندك مشروع<br>يستحق <span class="accent">تصميم حقيقي</span>؟</span>
+      <span data-en>Got a project that<br>deserves <span class="accent">real design</span>?</span>
+    </h2>
+    <p class="intro">
+      <span data-ar>كلّمنا على واتساب وخلّينا نسمع عن مشروعك. أول محادثة دائماً مجانية.</span>
+      <span data-en>Message us on WhatsApp and tell us about your project. The first conversation is always free.</span>
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary js-wa" href={site.whatsapp} target="_blank" rel="noopener" style="font-size:18px;padding:18px 38px">
+        <WhatsAppIcon />
+        <span data-ar>تواصل معنا واتساب</span><span data-en>WhatsApp us now</span>
+      </a>
+      <a class="btn btn-ghost" href="/contact">
+        <span data-ar>كل طرق التواصل</span><span data-en>All ways to reach us</span>
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+
+const founders = [
+  {
+    initial: 'م',
+    nameAr: 'معاذ عبده', nameEn: 'Moaz Abdo',
+    roleAr: 'شريك مؤسس', roleEn: 'Co-founder',
+  },
+  {
+    initial: 'ب',
+    nameAr: 'بشر البيلي', nameEn: 'Beshr Elbaily',
+    roleAr: 'شريك مؤسس', roleEn: 'Co-founder',
+  },
+];
+---
+<Base title="من نحن — Atelier Masr">
+  <section class="page-head wrap">
+    <div class="sec-label">
+      <span data-ar>من نحن</span><span data-en>About us</span>
+    </div>
+    <h1 class="h1">
+      <span data-ar>استوديو صغير،<br>عناية <span class="accent">كبيرة</span>.</span>
+      <span data-en>A small studio,<br>with great <span class="accent">care</span>.</span>
+    </h1>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section tight wrap">
+    <div class="prose reveal">
+      <p>
+        <span data-ar>أتيليه مصر استوديو تصميم مواقع في القاهرة. وُلد من قناعة بسيطة: كل مشروع — مهما كان صغيراً — يستحق حضوراً رقمياً يليق به.</span>
+        <span data-en>Atelier Masr is a web design studio in Cairo. It was born from a simple conviction: every project — however small — deserves a digital presence worthy of it.</span>
+      </p>
+      <p>
+        <span data-ar>نشتغل مع البوتيكات والمطاعم والعيادات والعلامات التي تهتم بالتفاصيل. لا نصنع قوالب جاهزة؛ نصمّم كل موقع كأنه <span class="gold">قطعة فن</span> — مدروسة من أول فكرة لآخر بكسل.</span>
+        <span data-en>We work with boutiques, restaurants, clinics, and brands that care about detail. We don't make ready-made templates; we design each site like a <span class="gold">work of art</span> — considered from the first idea to the last pixel.</span>
+      </p>
+      <p>
+        <span data-ar>نبدأ صغاراً عن قصد. استوديو صغير يعني أن كل عميل يتكلّم مع الأشخاص الذين يصمّمون موقعه فعلاً — وأن كل تفصيلة تمرّ بأيدينا نحن.</span>
+        <span data-en>We stay small on purpose. A small studio means every client speaks with the people actually designing their site — and every detail passes through our own hands.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ETHOS BAND -->
+  <section class="ethos">
+    <p class="quote">
+      <span data-ar>التصميم الجيد لا يصرخ.<br><span class="gold">إنه يُشعر العميل أنك جاد.</span></span>
+      <span data-en>Good design doesn't shout.<br><span class="gold">It makes your customer feel you're serious.</span></span>
+    </p>
+    <div class="by">
+      <span data-ar>— فلسفة أتيليه مصر</span><span data-en>— the Atelier Masr philosophy</span>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section class="section wrap">
+    <div class="reveal">
+      <div class="sec-label">
+        <span data-ar>المؤسّسون</span><span data-en>The founders</span>
+      </div>
+      <h2 class="sec-title">
+        <span data-ar>الأشخاص خلف الاستوديو.</span>
+        <span data-en>The people behind the studio.</span>
+      </h2>
+    </div>
+    <div class="founders reveal">
+      {founders.map((f) => (
+        <div class="founder">
+          <div class="initial">{f.initial}</div>
+          <h4><span data-ar>{f.nameAr}</span><span data-en>{f.nameEn}</span></h4>
+          <span class="role">
+            <span data-ar>{f.roleAr}</span><span data-en>{f.roleEn}</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

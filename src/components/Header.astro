@@ -1,0 +1,34 @@
+---
+import { navLinks } from '../data/nav';
+
+// Normalise the current path so trailing slashes don't break matching
+// (Astro serves "/work" in dev and "/work/" in the static build).
+const path = Astro.url.pathname.replace(/(.)\/$/, '$1');
+const isCurrent = (href: string) => path === href;
+---
+<header id="hdr">
+  <a class="mark" href="/" aria-label="Atelier Masr — home">
+    <span data-ar>أتيليه مصر</span><span data-en>Atelier Masr</span>
+    <span class="en" data-ar>Atelier Masr</span><span class="en" data-en>أتيليه مصر</span>
+  </a>
+
+  <nav class="nav" aria-label="Primary">
+    <ul class="nav-links" id="navLinks">
+      {navLinks.map((l) => (
+        <li>
+          <a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>
+            <span data-ar>{l.ar}</span><span data-en>{l.en}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language">EN</button>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </nav>
+</header>
