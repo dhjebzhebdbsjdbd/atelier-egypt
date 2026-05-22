@@ -245,6 +245,12 @@ html[lang="en"] .ethos::after{content:"MASR"}
 
 /* ===== intake form (Start a project) ===== */
 .intake{max-width:660px;margin:0 auto}
+.intake-welcome{
+  border-inline-start:2px solid var(--gold);
+  padding-inline-start:20px;margin-bottom:30px;
+  font-weight:300;font-size:16px;line-height:1.85;color:#56504a;
+}
+html[lang="en"] .intake-welcome{font-family:var(--serif)}
 .intake-legend{font-family:var(--serif);font-style:italic;color:#8a8178;font-size:15px;margin-bottom:8px}
 html[lang="ar"] .intake-legend{font-family:var(--ar-body);font-style:normal}
 .intake-legend .req{color:var(--gold);font-style:normal}
@@ -265,7 +271,7 @@ html[lang="en"] .field .hint{font-family:var(--serif);font-style:italic}
 
 .field input[type="text"],.field input[type="tel"],.field input[type="url"],
 .field input[type="email"],.field textarea{
-  width:100%;font-family:var(--ar-body);font-size:15.5px;color:var(--ink);
+  width:100%;max-width:100%;font-family:var(--ar-body);font-size:16px;color:var(--ink);
   background:var(--bone);border:1px solid var(--line);border-radius:4px;
   padding:13px 15px;transition:border-color .22s,box-shadow .22s;
 }

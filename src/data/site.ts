@@ -4,8 +4,6 @@ export const site = {
   phoneIntl: '201004075958',
   tel: 'tel:+201004075958',
   whatsapp: 'https://wa.me/201004075958',
-  instagram: 'https://instagram.com/ateliermasr',
-  instagramHandle: '@ateliermasr',
   email: 'mozayman0@gmail.com',
 
   // ── Web3Forms — powers the "Start a project" intake form ──────────
