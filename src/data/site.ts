@@ -7,10 +7,8 @@ export const site = {
   email: 'mozayman0@gmail.com',
 
   // ── Web3Forms — powers the "Start a project" intake form ──────────
-  // 1. Go to https://web3forms.com and create an Access Key.
-  // 2. When asked for the email, enter:  mozayman0@gmail.com
-  //    (that is the inbox every form submission will be delivered to).
-  // 3. Paste the key it gives you between the quotes below, replacing
-  //    the placeholder text. Save the file — that's the only step.
-  web3formsKey: 'PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE',
+  // Access key from web3forms.com; submissions are delivered to the
+  // email registered with this key (mozayman0@gmail.com). This key is
+  // designed to be public (it ships in the page HTML) — safe to commit.
+  web3formsKey: '8f4cfbc5-8288-4fd0-882a-6f6be9b70b38',
 };
